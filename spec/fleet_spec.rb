@@ -29,5 +29,21 @@ describe "Fleet management" do
         expect(cab).to be_an_instance_of(Cab)
       end
     end
+
+    it 'should return all available go cabs array' do
+      expect(fleet.available_go_cabs).to be_an_instance_of(Array)
+    end
+
+    it 'should return all busy go cabs array' do
+      expect(fleet.busy_go_cabs).to be_an_instance_of(Array)
+    end
+
+    it 'should return all available pink cabs array' do
+      expect(fleet.available_pink_cabs).to be_an_instance_of(Array)
+    end
+
+    it 'should return all busy pink cabs array' do
+      expect(fleet.busy_pink_cabs).to be_an_instance_of(Array)
+    end
   end
 end
