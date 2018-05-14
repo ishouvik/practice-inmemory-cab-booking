@@ -21,7 +21,7 @@ end
 
 # Books pink cab
 # @response: string | json
-get '/api/cabs/book/pink.json' do
+post '/api/cabs/book/pink.json' do
   content_type :json
   controller = ApiCabsController.new
   render = controller.book_pink
@@ -30,7 +30,7 @@ end
 
 # Books go cab
 # @response: string | json
-get '/api/cabs/book/go.json' do
+post '/api/cabs/book/go.json' do
   content_type :json
   controller = ApiCabsController.new
   render = controller.book_go
