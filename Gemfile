@@ -1,4 +1,6 @@
 source "https://rubygems.org"
 
-gem 'rspec'
+gem 'sinatra'
+gem 'json'
 gem 'random-location'
+gem 'rspec'
