@@ -15,20 +15,10 @@ puts "PLEASE SELECT CAB TYPE"
 puts "[1] PINK"
 puts "[2] GO"
 cab_type = gets.to_i
+(cab_type == 1) ? (cab_type = 'pink') : (cab_type = 'go')
 
 # Assicn cab
-if cab_type == 1
-  cab_type       = 'pink'
-  cabs           = fleet.pink_cabs
-  available_cabs = fleet.available_pink_cabs
-  payable_amount = Payment.amount(travel_distance, 'pink')
-else
-  cab_type       = 'go'
-  cabs           = fleet.go_cabs
-  available_cabs = fleet.available_go_cabs
-  payable_amount = Payment.amount(travel_distance, 'go')
-end
-
+payable_amount = Payment.amount(travel_distance, cab_type)
 assigned_cab = fleet.assign_cab(cab_type, user.pickup_location)
 cab_number   = assigned_cab[:id]
 
