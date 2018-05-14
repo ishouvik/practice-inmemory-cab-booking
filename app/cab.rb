@@ -1,7 +1,7 @@
 class Cab
-  attr_accessor :available
+  attr_accessor :available, :number
 
-  def initialize
+  def initialize(number)
     @available = true
   end
 end

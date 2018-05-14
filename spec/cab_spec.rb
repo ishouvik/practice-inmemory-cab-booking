@@ -11,6 +11,12 @@ describe "Cab management" do
 
     it 'should respond to proper methods' do
       expect(cab).to respond_to(:available)
+      expect(cab).to respond_to(:number)
+    end
+
+    it 'should respond to proper data types' do
+      expect(cab.number).to be_an_instance_of(Integer)
+      expect(cab.number).to be >= 0
     end
   end
 end
