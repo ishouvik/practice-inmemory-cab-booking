@@ -9,6 +9,8 @@ require_relative './helper/distance'
 user  = User.new
 fleet = Fleet.new
 
+travel_distance = Distance.calculate(user.pickup_location, user.drop_location)
+
 # Start user input
 puts "PLEASE SELECT CAB TYPE"
 puts "[1] PINK"
