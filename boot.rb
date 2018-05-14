@@ -2,8 +2,10 @@
 
 # Load classes
 require_relative './app/fleet'
+require_relative './app/user'
 
 # Initialize objects
+user  = User.new
 fleet = Fleet.new
 
 # Start user input
