@@ -6,6 +6,7 @@ require_relative './app/fleet'
 # Initialize objects
 fleet = Fleet.new
 
+# Start user input
 puts "PLEASE SELECT CAB TYPE"
 puts "[1] PINK"
 puts "[2] GO"
@@ -20,7 +21,8 @@ else
 end
 
 puts "PLEASE SELECT YOUR CAB"
-
+puts available_cabs.map { |cab| cab.number }.join(', ')
+cab_number = gets.to_i
 
 puts "Cab No. is arriving at your location"
 sleep 5
