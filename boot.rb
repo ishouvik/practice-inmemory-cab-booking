@@ -4,6 +4,7 @@
 require_relative './app/fleet'
 require_relative './app/user'
 require_relative './helper/distance'
+require_relative './helper/payment'
 
 # Initialize objects
 user  = User.new
@@ -20,9 +21,11 @@ cab_type = gets.to_i
 if cab_type == 1
   cabs           = fleet.pink_cabs
   available_cabs = fleet.available_pink_cabs
+  payable_amount = Payable.amount(travel_distance, 'pink')
 else
   cabs           = fleet.go_cabs
   available_cabs = fleet.available_go_cabs
+  payable_amount = Payable.amount(travel_distance, 'go')
 end
 
 puts "PLEASE SELECT YOUR CAB"
