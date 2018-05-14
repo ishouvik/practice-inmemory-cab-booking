@@ -1,5 +1,3 @@
-# Main module
-
 # Load classes
 require_relative './app/fleet'
 require_relative './app/user'
@@ -34,10 +32,10 @@ cab_number = gets.to_i
 cabs[cab_number].available = false
 
 puts "Cab No. is arriving at your location"
-# sleep 5
+sleep 5
 
 puts "Cab No. has arrived at your location"
-# sleep 5
+sleep 5
 
 puts "Cab type: #{cab_type}"
 puts "Your cab reached your destination."
