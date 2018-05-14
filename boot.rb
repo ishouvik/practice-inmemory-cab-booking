@@ -1,8 +1,10 @@
 # Main module
 
-# Initialize
-# Create user
-# Initialize Fleet
+# Load classes
+require_relative './app/fleet'
+
+# Initialize objects
+fleet = Fleet.new
 
 puts "PLEASE SELECT CAB TYPE"
 puts "[1] PINK"
