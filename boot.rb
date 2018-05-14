@@ -12,9 +12,11 @@ puts "[2] GO"
 cab_type = gets.to_i
 
 if cab_type == 1
-  # Do something for pink
+  cabs           = fleet.pink_cabs
+  available_cabs = fleet.available_pink_cabs
 else
-  # Do something for non-pink
+  cabs           = fleet.go_cabs
+  available_cabs = fleet.available_go_cabs
 end
 
 puts "PLEASE SELECT YOUR CAB"
@@ -22,9 +24,11 @@ puts "PLEASE SELECT YOUR CAB"
 
 puts "Cab No. is arriving at your location"
 sleep 5
+
 puts "Cab No. has arrived at your location"
 sleep 5
-puts "You cab reached your destination."
+
+puts "Cab type: #{cab_type}"
+puts "Your cab reached your destination."
 puts "Distance: XXX"
 puts "Payable amount: XXX"
-puts "Cab type: go"
