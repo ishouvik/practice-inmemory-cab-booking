@@ -3,6 +3,7 @@
 # Load classes
 require_relative './app/fleet'
 require_relative './app/user'
+require_relative './helper/distance'
 
 # Initialize objects
 user  = User.new
