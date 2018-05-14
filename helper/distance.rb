@@ -1,14 +1,14 @@
 require 'mathn'
 
 class Distance
-  def self.calculate(pickup, drop)
-    pickup_lat = pickup[0]
-    pickup_lang = pickup[1]
+  def self.calculate(source, target)
+    source_lat  = source[0]
+    source_lang = source[1]
 
-    drop_lat = drop[0]
-    drop_lang = drop[1]
+    target_lat    = target[0]
+    target_lang   = target[1]
 
-    distance = Math.sqrt( Distance.square_num(pickup_lat - drop_lat) + Distance.square_num(drop_lat - drop_lang) )
+    distance    = Math.sqrt( Distance.square_num(source_lat - target_lat) + Distance.square_num(target_lat - target_lang) )
 
     return distance
   end

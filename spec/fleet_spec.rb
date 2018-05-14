@@ -2,7 +2,10 @@ require 'rspec'
 require_relative '../app/fleet'
 
 describe "Fleet management" do
-  let(:fleet) { Fleet.new }
+  let(:fleet)          { Fleet.new }
+  let(:go_cab_type)    { 'go' }
+  let(:pink_cab_type)  { 'pink' }
+  let(:rider_location) { [12.980748951664836, 77.64609817264311] }
 
   context "fleet" do
     it 'should create a new fleet object' do
@@ -44,6 +47,18 @@ describe "Fleet management" do
 
     it 'should return all busy pink cabs array' do
       expect(fleet.busy_pink_cabs).to be_an_instance_of(Array)
+    end
+
+    it 'should assign a go cab from the available cabs' do
+      expect(fleet.assign_cab(go_cab_type, rider_location)).to be_an_instance_of(Hash)
+    end
+
+    it 'should assign a go cab from the available cabs' do
+      expect(fleet.assign_cab(go_cab_type, rider_location)).to be_an_instance_of(Hash)
+    end
+
+    it 'should assign a pink cab from the available cabs' do
+      expect(fleet.assign_cab(pink_cab_type, rider_location)).to be_an_instance_of(Hash)
     end
   end
 end
