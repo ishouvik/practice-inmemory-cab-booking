@@ -13,4 +13,11 @@ describe "Payment helper" do
       expect(Payment).to respond_to(:amount)
     end
   end
+
+  context "payment amount" do
+    subject { Payment.amount(64.12345, 'pink') }
+    it 'should return calculated amount' do
+      expect(subject).to be_an_instance_of(Float)
+    end
+  end
 end
