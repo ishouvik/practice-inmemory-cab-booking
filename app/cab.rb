@@ -3,5 +3,6 @@ class Cab
 
   def initialize(number)
     @available = true
+    @number = number
   end
 end
