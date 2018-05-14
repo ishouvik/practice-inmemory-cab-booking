@@ -1,10 +1,6 @@
 require_relative '../app/fleet'
 
 class HtmlCabsController
-  # attr_accessor :fleet,
-  #               :available_pink_cabs,
-  #               :available_go_cabs
-
   def initialize
     @fleet               = Fleet.new
     @available_pink_cabs = @fleet.available_pink_cabs
