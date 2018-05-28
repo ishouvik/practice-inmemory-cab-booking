@@ -12,6 +12,7 @@ Book cabs from a fleet of go and pink cabs. The HTTP server runs on `sinatra`
 - Install gems: `bundle install`
 - CLI: `ruby run.rb`
 - HTTP Server: `ruby server.rb`
+- Test: `rspec spec/<dirname>/<filename>_spec.rb`
 
 ## HTML Response
 
@@ -19,6 +20,8 @@ Book cabs from a fleet of go and pink cabs. The HTTP server runs on `sinatra`
 
 ## JSON API Response
 
-- Get count of cabs: GET `localhost:4567/api/cabs.json`
-- Book a new pink cab: POST `localhost:4567/api/cabs/book/pink.json`
-- Book a new go cab: POST `localhost:4567/api/cabs/book/go.json`
+| Type        | End point    | Params  | Description
+| ----------- |--------------| --------| -----|
+|  GET | `/api/cabs.json`      | - | Get count of available pink and go cabs |
+| POST | `/api/bookings/:cab_type/new.json` | pickup_lat:float , pickup_long:float, drop_lat:float, drop_long:float, type:string (go/pink) | Create a new booking
+| POST | `/api/bookings/:id/delete.json`    | type:string (go/pink) | Deletes booking, ends journey and releases cab
