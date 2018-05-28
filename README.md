@@ -23,5 +23,5 @@ Book cabs from a fleet of go and pink cabs. The HTTP server runs on `sinatra`
 | Type        | End point    | Params  | Description
 | ----------- |--------------| --------| -----|
 |  GET | `/api/cabs.json`      | - | Get count of available pink and go cabs |
-| POST | `/api/bookings/:cab_type/new.json` | pickup_lat:float , pickup_long:float, drop_lat:float, drop_long:float, type:string (go/pink) | Create a new booking
+| POST | `/api/bookings/new.json` | pickup_lat:float , pickup_long:float, drop_lat:float, drop_long:float, type:string (go/pink) | Create a new booking
 | POST | `/api/bookings/:id/delete.json`    | type:string (go/pink) | Deletes booking, ends journey and releases cab
