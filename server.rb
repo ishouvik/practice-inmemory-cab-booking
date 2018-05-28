@@ -28,10 +28,10 @@ end
 # Books cab and starts journey
 # @params: cab_type:string, pickup_lat:float, pickup_long:float, drop_lat:float, drop_long:float
 # @response: string | json
-post '/api/bookings/:cab_type/new.json' do
+post '/api/bookings/new.json' do
   content_type :json
 
-  cab_type    = params[:cab_type]
+  cab_type    = params[:type]
   pickup_lat  = params[:pickup_lat].to_f
   pickup_long = params[:pickup_long].to_f
   drop_lat    = params[:drop_lat].to_f
@@ -44,10 +44,10 @@ end
 # Ends journey and releases cab
 # @params cab_type, id:integer
 # @response: string | json
-post '/api/bookings/:cab_type/:id/delete.json' do
+post '/api/bookings/:id/delete.json' do
   content_type :json
 
-  cab_type   = params[:cab_type]
+  cab_type   = params[:type]
   cab_number = params[:id].to_i
 
   render = bookings_controller.delete(cab_type, cab_number)
