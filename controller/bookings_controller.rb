@@ -14,10 +14,6 @@ class BookingsController
     @fleet = fleet
   end
 
-  def index(available_pink_cabs, available_go_cabs)
-    return { :pink_cabs => available_pink_cabs, :go_cabs => available_go_cabs }
-  end
-
   def new(cab_type, pickup_lat, pickup_long, drop_lat, drop_long)
     user    = User.new(pickup_lat, pickup_long, drop_lat, drop_long)
     booking = Booking.new(@fleet, cab_type)
@@ -27,6 +23,7 @@ class BookingsController
 
   def delete(cab_type, cab_number)
     booking = Booking.new(@fleet, @cab_type)
+
     return booking.delete(cab_number)
   end
 end
