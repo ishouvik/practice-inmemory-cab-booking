@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../app/fleet'
+require_relative '../../model/fleet'
 
 describe "Fleet management" do
   let(:fleet)          { Fleet.new }

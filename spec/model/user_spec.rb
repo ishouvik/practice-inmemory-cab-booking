@@ -1,6 +1,6 @@
 require 'rspec'
 require 'random-location'
-require_relative '../app/user'
+require_relative '../../model/user'
 
 pickup_location = RandomLocation.near_by(12.9972469, 77.638594, 1000)
 drop_location   = RandomLocation.near_by(12.9972469, 77.638594, 1200)

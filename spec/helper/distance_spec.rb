@@ -1,6 +1,6 @@
 require 'rspec'
 require 'random-location'
-require_relative '../helper/distance'
+require_relative '../../helper/distance'
 
 describe "Distance helper" do
   let(:distance)        { Distance.new }

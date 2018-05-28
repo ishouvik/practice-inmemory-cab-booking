@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../helper/payment'
+require_relative '../../helper/payment'
 
 describe "Payment helper" do
   let(:payment) { Payment.new }

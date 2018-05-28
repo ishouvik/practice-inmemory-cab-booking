@@ -1,37 +1,33 @@
-# Load classes
-require_relative './app/fleet'
-require_relative './app/user'
-require_relative './helper/distance'
-require_relative './helper/payment'
+require_relative './model/fleet'
+require_relative './controller/cabs_controller'
 
-# Initialize objects
-user  = User.new
+# Initialize fleet
 fleet = Fleet.new
+cabs_controller = CabsController.new(fleet)
 
-travel_distance = Distance.calculate(user.pickup_location, user.drop_location)
+puts "ENTER YOUR CAB TYPE -> PINK | GO"
+cab_type = gets.downcase
 
-# Start user input
-puts "PLEASE SELECT CAB TYPE"
-puts "[1] PINK"
-puts "[2] GO"
-cab_type = gets.to_i
-(cab_type == 1) ? (cab_type = 'pink') : (cab_type = 'go')
+puts "ENTER YOUR PICKUP LOCATION"
+puts "LAT"
+pickup_lat = gets.to_f
+puts "LONG"
+pickup_long = gets.to_f
 
-# Assicn cab
-payable_amount = Payment.amount(travel_distance, cab_type)
-assigned_cab = fleet.assign_cab(cab_type, user.pickup_location)
-cab_number   = assigned_cab[:id]
+puts "ENTER YOUR DESTINATION"
+puts "LAT"
+drop_lat = gets.to_f
+puts "LONG"
+drop_long = gets.to_f
 
-puts "Cab No. #{cab_number} is arriving at your location"
-sleep 5
+booked_cab = cabs_controller.new(cab_type, pickup_lat, pickup_long, drop_lat, drop_long)
+cab_type   = booked_cab[:cab_type]
+cab_number = booked_cab[:cab_number]
 
-puts "Cab No. #{cab_number} has arrived at your location"
-sleep 5
+puts "YOUR CAB IS ON ITS WAY"
+puts "YOUR #{cab_type.upcase} CAB IS WAITING FOR YOU"
+puts "PRESS ENTER TO END JOURNEY"
+gets
+puts booked_cab
+puts cabs_controller.delete(cab_type, cab_number)
 
-puts "Cab type: #{cab_type.upcase}"
-puts "You have reached your destination."
-puts "Distance: #{travel_distance}"
-puts "Payable amount: #{payable_amount} DragonCoin"
-
-# Push the cab back to the available stack
-fleet.release_cab(cab_number, cab_type)

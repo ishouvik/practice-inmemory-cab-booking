@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../app/cab'
+require_relative '../../model/cab'
 
 describe "Cab management" do
   let(:cab) { Cab.new }
