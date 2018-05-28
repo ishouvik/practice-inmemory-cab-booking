@@ -1,10 +1,12 @@
 require 'rspec'
+require_relative '../../model/User'
 require_relative '../../model/fleet'
 
 describe "Fleet management" do
   let(:fleet)          { Fleet.new }
   let(:go_cab_type)    { 'go' }
   let(:pink_cab_type)  { 'pink' }
+  let(:user) { User.new(12.979644698160321, 77.64538439713968, 12.970551164386844, 77.63746822801073) }
   let(:rider_location) { [12.980748951664836, 77.64609817264311] }
 
   context "fleet" do
@@ -23,6 +25,7 @@ describe "Fleet management" do
       expect(fleet.size).to be > 0
       expect(fleet.go_cabs).to be_an_instance_of(Array)
       expect(fleet.pink_cabs).to be_an_instance_of(Array)
+      expect(user).to be_an_instance_of(User)
 
       fleet.go_cabs.each do |cab|
         expect(cab).to be_an_instance_of(Cab)
@@ -49,16 +52,8 @@ describe "Fleet management" do
       expect(fleet.busy_pink_cabs).to be_an_instance_of(Array)
     end
 
-    it 'should assign a go cab from the available cabs' do
-      expect(fleet.assign_cab(go_cab_type, rider_location)).to be_an_instance_of(Hash)
-    end
-
-    it 'should assign a go cab from the available cabs' do
-      expect(fleet.assign_cab(go_cab_type, rider_location)).to be_an_instance_of(Hash)
-    end
-
-    it 'should assign a pink cab from the available cabs' do
-      expect(fleet.assign_cab(pink_cab_type, rider_location)).to be_an_instance_of(Hash)
+    it 'should assign nearest cab to the user' do
+      expect(fleet.assign_cab(go_cab_type, user)).to be_an_instance_of(Hash)
     end
   end
 end

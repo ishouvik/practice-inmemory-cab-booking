@@ -12,7 +12,7 @@ class Booking
   def new(user)
     travel_distance = Distance.calculate(user.pickup_location, user.drop_location)
     payable_amount  = Payment.amount(travel_distance, @cab_type)
-    assigned_cab    = @fleet.assign_cab(@cab_type, user.pickup_location)
+    assigned_cab    = @fleet.assign_cab(@cab_type, user)
     cab_number      = assigned_cab[:id]
 
     return {
@@ -25,7 +25,6 @@ class Booking
 
   def delete(cab_number)
     @fleet.release_cab(cab_number, @cab_type)
-
-    return { message: 'released cab' }
+    return { message: "Ok", cab_number: cab_number }
   end
 end
