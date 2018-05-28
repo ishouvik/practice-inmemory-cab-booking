@@ -1,6 +1,9 @@
 require 'mathn'
 
 class Distance
+  # Calculate distance between two geo co-ordinates with Pythagorean theorem
+  # @params source:array, target:array
+  # @return float
   def self.calculate(source, target)
     source_lat  = source[0]
     source_lang = source[1]

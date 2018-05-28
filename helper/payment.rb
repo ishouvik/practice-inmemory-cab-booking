@@ -1,6 +1,9 @@
 class Payment
-  def self.amount(distance, car_type)
+  # Calculate payment based on cab_type and distance
+  # @params distance:float, cab_type:string
+  # @return float
+  def self.amount(distance, cab_type)
     dragoncoin = (distance * 2)
-    (car_type == 'pink') ? (return (dragoncoin + 5)) : (return dragoncoin)
+    (cab_type == 'pink') ? (return (dragoncoin + 5)) : (return dragoncoin)
   end
 end

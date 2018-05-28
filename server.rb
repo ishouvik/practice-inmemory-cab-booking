@@ -25,8 +25,8 @@ get '/api/cabs.json' do
   render.to_json
 end
 
-# Books cab
-# @params: cab_type, pickup_lat, pickup_long, drop_lat, drop_long
+# Books cab and starts journey
+# @params: cab_type:string, pickup_lat:float, pickup_long:float, drop_lat:float, drop_long:float
 # @response: string | json
 post '/api/bookings/:cab_type/new.json' do
   content_type :json
@@ -41,6 +41,9 @@ post '/api/bookings/:cab_type/new.json' do
   render.to_json
 end
 
+# Ends journey and releases cab
+# @params cab_type, id:integer
+# @response: string | json
 post '/api/bookings/:cab_type/:id/delete.json' do
   content_type :json
 

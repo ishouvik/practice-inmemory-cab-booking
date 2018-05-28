@@ -2,6 +2,7 @@ require 'random-location'
 class Cab
   attr_accessor :available, :number, :location, :user
 
+  # @params number:integer, location: array, user:object
   def initialize(number, location = false, user = nil)
     @available = true
     @number = number
