@@ -16,10 +16,10 @@ class Booking
     cab_number      = assigned_cab[:id]
 
     return {
-      cab_type: cab_type,
-      cab_number: cab_number,
-      travel_distance: travel_distance,
-      payable_amount: payable_amount
+      cab_type:         cab_type,
+      cab_number:       cab_number,
+      travel_distance:  travel_distance,
+      payable_amount:   payable_amount
     }
   end
 

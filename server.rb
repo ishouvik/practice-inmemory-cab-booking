@@ -1,12 +1,12 @@
 require "sinatra"
 require 'json'
 require_relative './model/fleet'
-require_relative './controller/cabs_controller'
+require_relative './controller/bookings_controller'
 require_relative './views/cabs_view'
 
 # Initialize fleet
 fleet = Fleet.new
-cabs_controller = CabsController.new(fleet)
+cabs_controller = BookingsController.new(fleet)
 
 # Renders number of cabs
 # @response: string | html
@@ -26,7 +26,7 @@ end
 # Books cab
 # @params: cab_type, pickup_lat, pickup_long, drop_lat, drop_long
 # @response: string | json
-post '/api/cabs/book/:cab_type/new.json' do
+post '/api/bookings/:cab_type/new.json' do
   content_type :json
 
   cab_type    = params[:cab_type]
@@ -36,11 +36,10 @@ post '/api/cabs/book/:cab_type/new.json' do
   drop_long   = params[:drop_long].to_f
 
   render = cabs_controller.new(cab_type, pickup_lat, pickup_long, drop_lat, drop_long)
-
   render.to_json
 end
 
-post '/api/cabs/book/:cab_type/:id/release.json' do
+post '/api/bookings/:cab_type/:id/delete.json' do
   content_type :json
 
   cab_type   = params[:cab_type]
